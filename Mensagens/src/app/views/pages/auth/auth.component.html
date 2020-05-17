@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" [routerLink]="['login']">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" [routerLink]="['registro']">Registro</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container form">
+  <router-outlet></router-outlet>
+</div>
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-md-6 descricao">
+      <a href="javascript:void(0)" [routerLink]="['login']">Login</a><br>
+      <a href="javascript:void(0)" [routerLink]="['registro']">Registro</a>
+    </div>
+    <div class="col-md-6 conteudo">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div> -->

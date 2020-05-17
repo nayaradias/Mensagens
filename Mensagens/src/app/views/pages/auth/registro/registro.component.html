@@ -1,0 +1,17 @@
+<form [formGroup]="formCadastro">
+    <div class="form-group">
+        <input formControlName="Nome" placeholder="Nome" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+        <input formControlName="Sobrenome" placeholder="Sobrenome" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+        <input formControlName="Email" placeholder="Email" type="email" class="form-control">
+    </div>
+    <div class="form-group">
+        <input  formControlName="Senha" placeholder="Senha" type="password" class="form-control">
+    </div>
+    <div class="form-group">
+        <button type="submit" (click)="submit()" class="btn btn-primary btn-lg btn-block login-button">Cadatrar</button>
+    </div>
+</form>
