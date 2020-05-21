@@ -26,9 +26,9 @@ export class LoginComponent implements OnInit {
       res=>{
         // console.log(res);
         localStorage.setItem('token',res.token);
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/Mensagens');
       }
     )
-    console.log(this.formLogin.value);
+    // console.log(this.formLogin.value);
   }
 }

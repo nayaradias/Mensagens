@@ -8,11 +8,13 @@ import { AutenticacaoService } from '../app/core/services/autenticacao.service';
 import { InterceptorService } from './core/utils/intercept.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DasboardComponent } from './views/pages/dasboard/dasboard.component';
+import { ThemesModule } from './views/themes/themes.module';
 @NgModule({
   declarations: [AppComponent, DasboardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ThemesModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule
