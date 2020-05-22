@@ -31,4 +31,7 @@ export class LoginComponent implements OnInit {
     )
     // console.log(this.formLogin.value);
   }
+  onClickCadastrar() {
+    this.router.navigateByUrl('Auth/registro');
+  }
 }

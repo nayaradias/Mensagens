@@ -39,4 +39,7 @@ export class RegistroComponent implements OnInit {
     )
     // console.log(this.formCadastro.value);
   }
+  onClickLogin() {
+    this.router.navigateByUrl('Auth/login');
+  }
 }

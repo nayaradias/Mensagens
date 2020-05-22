@@ -1,4 +1,4 @@
-<form [formGroup]="formLogin">
+<!-- <form [formGroup]="formLogin">
     <div class="form-group">
         <input formControlName="email" placeholder="email" type="email" class="form-control">
     </div>
@@ -9,4 +9,30 @@
         <button type="submit" (click)="submit()" class="btn btn-primary btn-lg btn-block login-button">Entrar</button>
     </div>
 </form>
-
+ -->
+ <div class="fadeIn first">
+    <header class="login-cta">
+        <h2>Login</h2>
+    </header>
+    <img src="../../../../../assets/img/loginChat.png" id="icon" alt="CPA Image" width="180px" height="100px" />
+</div>
+<form [formGroup]="formLogin">
+    <div class="form-row fadeIn second">
+        <input type="text" formControlName="email" required>
+        <span>Email</span>
+    </div>
+    <div class="form-row fadeIn third">
+        <input type="password" formControlName="senha" required>
+        <span>Senha</span>
+    </div>
+    <div class="form-row fadeIn fourth"></div>
+    <div class="form-row fadeIn fourth">
+        <button type="submit" (click)="submit()">Entrar</button>
+    </div>
+    <header>
+        <h2></h2>
+    </header>
+    <div class="form-row fadeIn fourth">
+        <a (click)="onClickCadastrar()" class="logar cadastro">Cadastre-se</a>
+    </div>
+</form>
