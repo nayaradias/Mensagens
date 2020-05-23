@@ -9,6 +9,7 @@ import { InterceptorService } from './core/utils/intercept.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DasboardComponent } from './views/pages/dasboard/dasboard.component';
 import { ThemesModule } from './views/themes/themes.module';
+import { MensagemService } from './core/services/mensagens.service';
 @NgModule({
   declarations: [AppComponent, DasboardComponent],
   imports: [
@@ -19,7 +20,7 @@ import { ThemesModule } from './views/themes/themes.module';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [AutenticacaoService,{
+  providers: [MensagemService,AutenticacaoService,{
     provide:HTTP_INTERCEPTORS,useClass:InterceptorService,multi:true
   }],
   bootstrap: [AppComponent],

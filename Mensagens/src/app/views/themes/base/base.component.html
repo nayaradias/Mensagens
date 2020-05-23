@@ -56,7 +56,8 @@
       <div class="container">
         <div class="space"></div>
 
-        <!--Mensagens-->
+
+        <!-- <router-outlet></router-outlet> -->
         <div class="card card-primary direct-chat direct-chat-primary">
           <div class="card-header">
             <h3 class="card-title">Posts</h3>
@@ -71,7 +72,11 @@
                 <img class="direct-chat-img"
                   [src]="usuario?.UrlFoto ? env+usuario.UrlFoto : '../../../../assets/img/usuarioFoto.png'">
                 <div class="direct-chat-text">
-                  Conteudo
+                  <div class="conteudo">Conteudo</div>
+                  <div class="config">
+                    <a data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-edit"></i></a>
+                    <a data-toggle="tooltip" data-placement="top" title="Deletar"><i class="fa fa-trash"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -79,7 +84,7 @@
           <div class="card-footer">
             <form [formGroup]="formMensagem">
               <div class="input-group">
-                <input formControlName="Conteudo2" type="text" name="message" placeholder="Digite sua mensagem ..."
+                <input formControlName="Conteudo" type="text" name="message" placeholder="Digite sua mensagem ..."
                   class="form-control">
                 <span class="input-group-append">
                   <button class="btn btn-primary" type="submit" (click)="submit()">Enviar</button>
@@ -88,11 +93,12 @@
             </form>
           </div>
         </div>
-        <!--Mensagens-->
+        <!-- <router-outlet></router-outlet> -->
+
 
         <div class="content">
           <div class="container-fluid">
-
+            <!--Adicionar mais funcionalidades-->
           </div>
         </div>
       </div>
