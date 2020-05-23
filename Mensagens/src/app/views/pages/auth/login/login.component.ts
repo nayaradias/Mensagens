@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   }
   initFormulario(){
     this.formLogin = this.fb.group({
-        email: this.fb.control('',[Validators.required]),
+        email: this.fb.control('',[Validators.required,Validators.pattern("[a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9\-\_\.]+")]),
         senha:this.fb.control('',[Validators.required]),
     })
   }

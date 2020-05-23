@@ -23,7 +23,7 @@ export class RegistroComponent implements OnInit {
     this.formCadastro = this.fb.group({
       Nome: this.fb.control('', [Validators.required]),
       Sobrenome: this.fb.control('', [Validators.required]),
-      Email: this.fb.control('', [Validators.required]),
+      Email: this.fb.control('', [Validators.required,Validators.pattern("[a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9\-\_\.]+")]),
       Senha: this.fb.control('', [Validators.required]),
     });
   }
