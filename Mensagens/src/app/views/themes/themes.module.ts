@@ -6,9 +6,9 @@ import { InterceptorService } from 'src/app/core/utils/intercept.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [HeaderComponent, BaseComponent],
+  declarations: [ BaseComponent],
   imports: [CommonModule,FormsModule, ReactiveFormsModule,],
-  exports: [HeaderComponent, BaseComponent,  CommonModule,
+  exports: [BaseComponent,  CommonModule,
     FormsModule,
     ReactiveFormsModule],
     //providers: [InterceptorService],
