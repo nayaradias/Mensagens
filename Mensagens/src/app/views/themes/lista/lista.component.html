@@ -1,0 +1,14 @@
+<div class="card card-primary direct-chat direct-chat-primary">
+    <div class="card-header">
+        <h3 class="card-title">Posts</h3>
+    </div>
+    <div class="card-body">
+        <div class="direct-chat-messages">
+            <app-mensagens [messageVarClasse]="msg" *ngFor="let msg of messageS"
+                ></app-mensagens>
+        </div>
+    </div>
+    <div class="card-footer">
+        <app-input></app-input>
+    </div>
+</div>

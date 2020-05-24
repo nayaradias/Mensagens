@@ -8,10 +8,9 @@ export class Mensagem implements MensagemI {
   VisualizadaPor: string;
   constructor(
     conteudo: string,
-    usuario: UsuarioI,
+    usuario?: UsuarioI,
     data?: Date,
     visualizadaPor?: string,
-    id?: string
   ) {
     this.Conteudo = conteudo;
     this.Usuario = usuario;

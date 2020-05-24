@@ -12,18 +12,21 @@ export class MensagemService {
   constructor(private http: HttpClient, private router: Router) {}
   token = localStorage.getItem('token');
   mensagemEditada = new EventEmitter<MensagemI>();
-  listar() {
+  listar():Observable<any> {
     return this.http.get(`${api}/mensagens`, {});
   }
-  adicionar(conteudo: string, usuario: UsuarioI): Observable<any> {
+  adicionar(conteudo: string): Observable<any> {
     return this.http.post(`${api}/mensagens`, {
       Conteudo: conteudo,
-      Usuario: usuario,
+      // Usuario: usuario,
     });
   }
   editar(mensagem: MensagemI) {
     // this.messageSService.splice(this.messageSService.indexOf(message), 1);
     return this.http.put(`${api}/mensagens/editar/${mensagem}`, {});
+  }
+  editMessage(message: MensagemI) {
+    this.mensagemEditada.emit(message);
   }
   deletar(mensagem: Mensagem) {
     return this.http.delete(`${api}/mensagens/deletar/${mensagem}`, {});

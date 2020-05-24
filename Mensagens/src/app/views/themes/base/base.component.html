@@ -56,56 +56,7 @@
       <div class="container">
         <div class="space"></div>
 
-
-        <!-- <router-outlet></router-outlet> -->
-        <div class="card card-primary direct-chat direct-chat-primary">
-          <div class="card-header">
-            <h3 class="card-title">Posts</h3>
-          </div>
-          <div class="card-body">
-            <div class="direct-chat-messages">
-              <div class="direct-chat-msg right">
-                <div class="direct-chat-infos clearfix">
-                  <span class="direct-chat-name float-right">
-                    <!-- {{messageVar.Usuario.Nome}} -->
-                    Nome
-                  </span>
-                  <span class="direct-chat-timestamp float-left">
-                    <!-- {{messageVar.DataCriacao}} -->
-                    Data de Criação
-                  </span>
-                </div>
-                <img class="direct-chat-img"
-                  [src]="usuario?.UrlFoto ? env+usuario.UrlFoto : '../../../../assets/img/usuarioFoto.png'">
-                <div class="direct-chat-text">
-                  <div class="conteudo">
-                    {{messageVar.Conteudo}}
-                    Conteudo
-                  </div>
-                  <div class="config">
-                    <a type="button" (click)="editar()" data-toggle="tooltip" data-placement="top" title="Editar"><i
-                        class="fa fa-edit"></i></a>
-                    <a type="button" (click)="deletar()" data-toggle="tooltip" data-placement="top" title="Deletar"><i
-                        class="fa fa-trash"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card-footer">
-            <form [formGroup]="formMensagem">
-              <div class="input-group">
-                <input formControlName="Conteudo" type="text" name="message" placeholder="Digite sua mensagem ..."
-                  class="form-control">
-                <span class="input-group-append">
-                  <button class="btn btn-primary" type="submit" (click)="submit()">Salvar</button>
-                </span>
-              </div>
-            </form>
-          </div>
-        </div>
-        <!-- <router-outlet></router-outlet> -->
-
+        <app-lista></app-lista>
 
         <div class="content">
           <div class="container-fluid">

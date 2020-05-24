@@ -1,0 +1,23 @@
+<div class="direct-chat-msg right">
+    <div class="direct-chat-infos clearfix">
+        <span class="direct-chat-name float-right">
+            {{messageVarClasse.Usuario}}
+        </span>
+        <span class="direct-chat-timestamp float-left">
+            {{messageVarClasse.DataCriacao}}
+        </span>
+    </div>
+ <img class="direct-chat-img" src="../../../../assets/img/usuarioFoto.png">
+ <!-- [src]="usuario?.UrlFoto ? env+usuario.UrlFoto : '../../../../assets/img/usuarioFoto.png'"  -->
+    <div class="direct-chat-text">
+        <div class="conteudo">
+            {{messageVarClasse.Conteudo}}
+        </div>
+        <div class="config">
+            <a type="button" (click)="editarService()" data-toggle="tooltip" data-placement="top" title="Editar"><i
+                    class="fa fa-edit"></i></a>
+            <a type="button" (click)="deletarService()" data-toggle="tooltip" data-placement="top" title="Deletar"><i
+                    class="fa fa-trash"></i></a>
+        </div>
+    </div>
+</div>

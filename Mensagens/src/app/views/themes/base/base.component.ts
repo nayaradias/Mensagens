@@ -31,55 +31,55 @@ export class BaseComponent implements OnInit {
     new Mensagem('Erro ao listar os posts', this.usuario),
   ];
   ngOnInit(): void {
-    this.iniciar();
+   // this.iniciar();
     this.autenticacao.usuarioLogado().subscribe((usuario) => {
       console.log('usuarioLogado:', usuario);
       this.usuario = usuario.usuario;
     });
   }
-  iniciar() {
-    this.formMensagem = this.fb.group({
-      Conteudo: this.fb.control('', [Validators.required]),
-    });
+  // iniciar() {
+  //   this.formMensagem = this.fb.group({
+  //     Conteudo: this.fb.control('', [Validators.required]),
+  //   });
 
-    this.mensagemService.listar().subscribe(
-      (mensagens: Mensagem[]) => {
-        this.mensagensArr = mensagens;
-        console.log('Listar mensagens:', mensagens);
-      },
-      (err) => {
-        console.log('Listar erro:', err);
-      }
-    );
-  }
-  submit() {
-    this.mensagemService
-      .adicionar(this.formMensagem.value.Conteudo, this.usuario)
-      .subscribe((res) => {
-        console.log('res adicionar mensagem:', res);
-      });
-    this.formMensagem.value.Conteudo = '';
-  }
-  editar() {
-    this.mensagemService.editar(this.messageVar).subscribe(
-      (mensagem) => {
-        console.log('Editar :', mensagem);
-      },
-      (err) => {
-        console.log('Editar :', err);
-      }
-    );
-  }
-  deletar() {
-    this.mensagemService.deletar(this.messageVar).subscribe(
-      (mensagem) => {
-        console.log('Deletar :', mensagem);
-      },
-      (err) => {
-        console.log('Deletar :', err);
-      }
-    );
-  }
+  //   this.mensagemService.listar().subscribe(
+  //     (mensagens: Mensagem[]) => {
+  //       this.mensagensArr = mensagens;
+  //       console.log('Listar mensagens:', mensagens);
+  //     },
+  //     (err) => {
+  //       console.log('Listar erro:', err);
+  //     }
+  //   );
+  // }
+  // submit() {
+  //   this.mensagemService
+  //     .adicionar(this.formMensagem.value.Conteudo, this.usuario)
+  //     .subscribe((res) => {
+  //       console.log('res adicionar mensagem:', res);
+  //     });
+  //   this.formMensagem.value.Conteudo = '';
+  // }
+  // editar() {
+  //   this.mensagemService.editar(this.messageVar).subscribe(
+  //     (mensagem) => {
+  //       console.log('Editar :', mensagem);
+  //     },
+  //     (err) => {
+  //       console.log('Editar :', err);
+  //     }
+  //   );
+  // }
+  // deletar() {
+  //   this.mensagemService.deletar(this.messageVar).subscribe(
+  //     (mensagem) => {
+  //       console.log('Deletar :', mensagem);
+  //     },
+  //     (err) => {
+  //       console.log('Deletar :', err);
+  //     }
+  //   );
+  // }
   sair() {
     localStorage.removeItem('token');
     this.router.navigateByUrl('/Auth/login');

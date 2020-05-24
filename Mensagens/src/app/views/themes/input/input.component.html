@@ -1,0 +1,9 @@
+<form [formGroup]="formMensagem">
+    <div class="input-group">
+        <input formControlName="Conteudo" type="text" name="message" placeholder="Digite sua mensagem ..."
+            class="form-control">
+        <span class="input-group-append">
+            <button class="btn btn-primary" type="submit" (click)="submit()">Salvar</button>
+        </span>
+    </div>
+</form>
