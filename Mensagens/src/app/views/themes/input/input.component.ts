@@ -23,30 +23,19 @@ export class InputComponent implements OnInit {
       Conteudo: this.fb.control('', [Validators.required]),
     });
 
-    this.mensagemService.mensagemEditada.subscribe(
-      (message: MensagemI) => (this.messageLoad = message)
-    );
+    this.mensagemService.mensagemEditada.subscribe((message: MensagemI) => {
+      this.messageLoad = message;
+      console.log(this.messageLoad);
+    });
   }
   submit() {
-    if (this.messageLoad) {
-      this.messageLoad.Conteudo = this.formMensagem.value.Conteudo;
-      this.mensagemService.editar(this.messageLoad).subscribe(
-        (res) => {
-          console.log(res);
-        },
-        (err) => console.log(err)
-      );
-      this.messageLoad = null;
-    } else {
-      this.mensagemService
-        .adicionar(this.formMensagem.value.Conteudo)
-        .subscribe(
-          (res) => console.log(res),
-          (err) => console.log(err)
-        );
-    }
+    this.mensagemService.adicionar(this.formMensagem.value.Conteudo).subscribe(
+      (res) => console.log(res),
+      (err) => console.log(err)
+    );
     this.formMensagem = this.fb.group({
       Conteudo: this.fb.control('', [Validators.required]),
     });
   }
+  
 }
