@@ -17,7 +17,7 @@ module.exports = {
     },
     async listarMensagens(req, res) {
         try {
-            const mensagem = await Mensagem.find({});
+            const mensagem = await Mensagem.find({}).populate('Usuario');
             return res.status(201).json({
                 mensagem
             })

@@ -13,18 +13,22 @@ import { UsuarioI } from 'src/app/core/interfaces/usuario.interface';
 export class MensagensComponent implements OnInit {
   constructor(private mensagemService: MensagemService) {}
 
-  @Input() messageVarClasse: Mensagem = new Mensagem('', null, null, '');
+  @Input() messageVarClasse;
   ngOnInit(): void {
     // this.usuario;
   }
-  editarService() {
+  editarService(mensagem) {
     // this.mensagemService.editMessage(this.messageVarClasse);
-    this.mensagemService.editar(this.messageVarClasse).subscribe(
-      (res) => {
-        console.log(res);
-      },
-      (err) => console.log(err)
+    // this.mensagemService.editar(this.messageVarClasse).subscribe(
+    //   (res) => {
+    //     console.log(res);
+    //   },
+    //   (err) => console.log(err)
+    // );
+    this.mensagemService.editar('CONTEUDO NEW',mensagem._id).subscribe(
+      res=>{console.log(res)}
     );
+    console.log(mensagem);
   }
   deletarService() {
     debugger;

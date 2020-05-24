@@ -1,10 +1,11 @@
 <div class="direct-chat-msg right">
     <div class="direct-chat-infos clearfix">
         <span class="direct-chat-name float-right">
-            {{messageVarClasse.Usuario}}
+            {{messageVarClasse.Usuario.Nome}}
         </span>
         <span class="direct-chat-timestamp float-left">
-            {{messageVarClasse.DataCriacao}}
+            {{messageVarClasse.DataCriacao | date:'dd/MM/yyyy'}} -
+            {{messageVarClasse.DataCriacao | date:'hh:mm'}}
         </span>
     </div>
  <img class="direct-chat-img" src="../../../../assets/img/usuarioFoto.png">
@@ -14,7 +15,7 @@
             {{messageVarClasse.Conteudo}}
         </div>
         <div class="config">
-            <a type="button" (click)="editarService()" data-toggle="tooltip" data-placement="top" title="Editar"><i
+            <a type="button" (click)="editarService(messageVarClasse)" data-toggle="tooltip" data-placement="top" title="Editar"><i
                     class="fa fa-edit"></i></a>
             <a type="button" (click)="deletarService()" data-toggle="tooltip" data-placement="top" title="Deletar"><i
                     class="fa fa-trash"></i></a>

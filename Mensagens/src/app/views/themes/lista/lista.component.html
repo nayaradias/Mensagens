@@ -3,9 +3,10 @@
         <h3 class="card-title">Posts</h3>
     </div>
     <div class="card-body">
-        <div class="direct-chat-messages">
-            <app-mensagens [messageVarClasse]="msg" *ngFor="let msg of messageS"
-                ></app-mensagens>
+        <div class="direct-chat-messages" *ngFor="let mensagem of mensagens">
+            <app-mensagens [messageVarClasse]="mensagem">
+
+            </app-mensagens>
         </div>
     </div>
     <div class="card-footer">

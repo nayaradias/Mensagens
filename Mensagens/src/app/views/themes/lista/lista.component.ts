@@ -15,25 +15,16 @@ import { MensagemI } from 'src/app/core/interfaces/mensagem.interface';
 })
 export class ListaComponent implements OnInit {
   constructor(private mensagemService: MensagemService) {}
-  messageS: Mensagem[] = [
-    new Mensagem('Erro ao tentar exibir as mensagens', null, null, ''),
-    new Mensagem('Erro ao tentar exibir as mensagens', null, null, ''),
-    new Mensagem('Erro ao tentar exibir as mensagens', null, null, ''),
-  ];
+  mensagens = [];
 
   ngOnInit(): void {
     this.iniciar();
   }
 
   iniciar() {
-    this.mensagemService.listar().subscribe(
-      (res: Mensagem[]) => {
-        this.messageS = res;
-        console.log('Lista Mensagens',this.messageS)
-      },
-      (err) => console.log(err)
-    );
-
-    return;
+    this.mensagemService.listar().subscribe((res) => {
+      console.log(res);
+      this.mensagens = res.mensagem;
+    });
   }
 }
