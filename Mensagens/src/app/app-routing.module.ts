@@ -9,16 +9,19 @@ const routes: Routes = [
     loadChildren: () =>
       import('./views/pages/auth/auth.module').then((m) => m.AuthModule),
   },
-  { 
-    path: '', 
-   component: BaseComponent,
-   canActivate:[AuthGuard],
-   children:[{
-    path: 'Mensagens',
-    loadChildren: () =>
-      import('./views/pages/mensagens/mensagens.module').then((m) => m.MensagensModule),
-   }
-  ]
+  {
+    path: '',
+    component: BaseComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'Mensagens',
+        loadChildren: () =>
+          import('./views/pages/mensagens/mensagens.module').then(
+            (m) => m.MensagensModule
+          ),
+      },
+    ],
   },
 ];
 

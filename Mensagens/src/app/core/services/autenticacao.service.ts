@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import { UsuarioI } from '../interfaces/usuario.interface';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 const api = environment.api;
 @Injectable()
 export class AutenticacaoService {

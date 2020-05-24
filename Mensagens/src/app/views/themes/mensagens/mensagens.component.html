@@ -10,7 +10,6 @@
     </div>
     <img class="direct-chat-img"
         [src]="messageVarClasse.Usuario?.UrlFoto ? env+messageVarClasse.Usuario.UrlFoto : '../../../../assets/img/usuarioFoto.png'">
-    <!-- [src]="usuario?.UrlFoto ? env+usuario.UrlFoto : '../../../../assets/img/usuarioFoto.png'"  -->
     <div class="direct-chat-text">
         <div class="conteudo">
             {{messageVarClasse.Conteudo}}
@@ -18,20 +17,8 @@
         <div class="config">
             <a type="button" (click)="editarService(messageVarClasse)" data-toggle="tooltip" data-placement="top"
                 title="Editar"><i class="fa fa-edit"></i></a>
-            <a type="button" (click)="deletarService()" data-toggle="tooltip" data-placement="top" title="Deletar"><i
-                    class="fa fa-trash"></i></a>
+            <a type="button" (click)="deletarService(messageVarClasse)" data-toggle="tooltip" data-placement="top"
+                title="Deletar"><i class="fa fa-trash"></i></a>
         </div>
     </div>
-    <!-- <div class="editar">
-
-        <form [formGroup]="formEditarMensagem">
-            <div class="input-group">
-                <input formControlName="NewConteudo" type="text" name="message" placeholder="Digite a nova mensagem ..."
-                    class="form-control">
-                <span class="input-group-append">
-                    <button class="btn btn-primary" type="submit" (click)="submitNewMessage()">Alterar</button>
-                </span>
-            </div>
-        </form>
-    </div> -->
 </div>

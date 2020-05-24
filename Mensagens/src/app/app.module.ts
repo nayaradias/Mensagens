@@ -7,22 +7,27 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AutenticacaoService } from '../app/core/services/autenticacao.service';
 import { InterceptorService } from './core/utils/intercept.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { DasboardComponent } from './views/pages/dasboard/dasboard.component';
 import { ThemesModule } from './views/themes/themes.module';
 import { MensagemService } from './core/services/mensagens.service';
 @NgModule({
-  declarations: [AppComponent, DasboardComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ThemesModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
-  providers: [MensagemService,AutenticacaoService,{
-    provide:HTTP_INTERCEPTORS,useClass:InterceptorService,multi:true
-  }],
+  providers: [
+    MensagemService,
+    AutenticacaoService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

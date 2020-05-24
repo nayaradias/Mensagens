@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
-import { Route } from '@angular/compiler/src/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthComponent } from './auth.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -36,6 +35,6 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers:[InterceptorService]
+  providers: [InterceptorService],
 })
 export class AuthModule {}

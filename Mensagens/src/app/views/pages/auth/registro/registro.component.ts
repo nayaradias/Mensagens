@@ -35,7 +35,6 @@ export class RegistroComponent implements OnInit {
       console.log(res);
       this.router.navigateByUrl('Auth/login');
     });
-    // console.log(this.formCadastro.value);
   }
   onClickLogin() {
     this.router.navigateByUrl('Auth/login');

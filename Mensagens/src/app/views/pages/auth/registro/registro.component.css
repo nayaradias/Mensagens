@@ -70,7 +70,7 @@ form > .form-row > input:required {
 form > .form-row > input:focus {
   border-color: #56baed;
   outline: none;
-  color:#757683;
+  color: #757683;
 }
 form > .form-row > input:focus:invalid {
   box-shadow: none;

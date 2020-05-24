@@ -1,31 +1,26 @@
-/* .form{
-    margin: 0 auto;
-    width: 50%;
-} */
-
 .body {
-    background: url(../../../../assets/img/background_nuvem_1.jpg);
-    background-size: cover;
-    display: table;
-    height: 657px;
-    width: 100%;
-    text-align: center;
-    margin: 0 auto;
-    overflow: hidden;
-  }
-  *,
-  *:before,
-  *:after {
-    box-sizing: border-box;
-  }
-  
-  .contact-wrapper{
-    margin: 15px auto;
-    background: #fff;
-    border-radius: 5px;
-    padding: 1em;
-    width: 35%;
-    height: 500px;
-    -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-    box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-  }
+  background: url(../../../../assets/img/background_nuvem_1.jpg);
+  background-size: cover;
+  display: table;
+  height: 657px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  overflow: hidden;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.contact-wrapper {
+  margin: 15px auto;
+  background: #fff;
+  border-radius: 5px;
+  padding: 1em;
+  width: 35%;
+  height: 500px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+}
