@@ -24,8 +24,12 @@ export class BaseComponent implements OnInit {
   mensagem: MensagemI;
   formMensagem: FormGroup;
   env = environment.apifile;
-  // @Input() messageVar: Mensagem =  new Mensagem("",this.usuario);
-
+  @Input() messageVar: Mensagem = new Mensagem('', this.usuario);
+  mensagensArr: Mensagem[] = [
+    new Mensagem('Erro ao listar os posts', this.usuario),
+    new Mensagem('Erro ao listar os posts', this.usuario),
+    new Mensagem('Erro ao listar os posts', this.usuario),
+  ];
   ngOnInit(): void {
     this.iniciar();
     this.autenticacao.usuarioLogado().subscribe((usuario) => {
@@ -37,6 +41,16 @@ export class BaseComponent implements OnInit {
     this.formMensagem = this.fb.group({
       Conteudo: this.fb.control('', [Validators.required]),
     });
+
+    this.mensagemService.listar().subscribe(
+      (mensagens: Mensagem[]) => {
+        this.mensagensArr = mensagens;
+        console.log('Listar mensagens:', mensagens);
+      },
+      (err) => {
+        console.log('Listar erro:', err);
+      }
+    );
   }
   submit() {
     this.mensagemService
@@ -44,21 +58,27 @@ export class BaseComponent implements OnInit {
       .subscribe((res) => {
         console.log('res adicionar mensagem:', res);
       });
+    this.formMensagem.value.Conteudo = '';
   }
-  editar(){
-    // this.mensagemService.editar(this.messageVar);
+  editar() {
+    this.mensagemService.editar(this.messageVar).subscribe(
+      (mensagem) => {
+        console.log('Editar :', mensagem);
+      },
+      (err) => {
+        console.log('Editar :', err);
+      }
+    );
   }
-  deletar(){
-    // this.messageServiceObj.deleteMessage(this.messageVarClasse).subscribe(
-    //   dadosSucesso => console.log(dadosSucesso),
-    //   dadosErro => console.log(dadosErro)
-    // )
-  }
-  atualizar(){
-
-  }
-  listar(){
-    
+  deletar() {
+    this.mensagemService.deletar(this.messageVar).subscribe(
+      (mensagem) => {
+        console.log('Deletar :', mensagem);
+      },
+      (err) => {
+        console.log('Deletar :', err);
+      }
+    );
   }
   sair() {
     localStorage.removeItem('token');

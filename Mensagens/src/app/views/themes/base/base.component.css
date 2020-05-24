@@ -1,7 +1,10 @@
 .space {
   height: 20px;
 }
-
+.fa-power-off:before{
+  color: #cccccc;
+  font-size: 23px;
+}
 .fa,.conteudo{
   padding: 5px 8px;
   color: #ffffff;

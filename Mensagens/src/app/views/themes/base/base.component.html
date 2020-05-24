@@ -66,16 +66,27 @@
             <div class="direct-chat-messages">
               <div class="direct-chat-msg right">
                 <div class="direct-chat-infos clearfix">
-                  <span class="direct-chat-name float-right">Nome do Autor</span>
-                  <span class="direct-chat-timestamp float-left">Data de criação</span>
+                  <span class="direct-chat-name float-right">
+                    <!-- {{messageVar.Usuario.Nome}} -->
+                    Nome
+                  </span>
+                  <span class="direct-chat-timestamp float-left">
+                    <!-- {{messageVar.DataCriacao}} -->
+                    Data de Criação
+                  </span>
                 </div>
                 <img class="direct-chat-img"
                   [src]="usuario?.UrlFoto ? env+usuario.UrlFoto : '../../../../assets/img/usuarioFoto.png'">
                 <div class="direct-chat-text">
-                  <div class="conteudo">Conteudo</div>
+                  <div class="conteudo">
+                    {{messageVar.Conteudo}}
+                    Conteudo
+                  </div>
                   <div class="config">
-                    <a data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-edit"></i></a>
-                    <a data-toggle="tooltip" data-placement="top" title="Deletar"><i class="fa fa-trash"></i></a>
+                    <a type="button" (click)="editar()" data-toggle="tooltip" data-placement="top" title="Editar"><i
+                        class="fa fa-edit"></i></a>
+                    <a type="button" (click)="deletar()" data-toggle="tooltip" data-placement="top" title="Deletar"><i
+                        class="fa fa-trash"></i></a>
                   </div>
                 </div>
               </div>
@@ -87,7 +98,7 @@
                 <input formControlName="Conteudo" type="text" name="message" placeholder="Digite sua mensagem ..."
                   class="form-control">
                 <span class="input-group-append">
-                  <button class="btn btn-primary" type="submit" (click)="submit()">Enviar</button>
+                  <button class="btn btn-primary" type="submit" (click)="submit()">Salvar</button>
                 </span>
               </div>
             </form>
