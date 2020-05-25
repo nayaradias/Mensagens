@@ -1,17 +1,16 @@
 <div class="wrapper">
-
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  <nav class="main-header navbar navbar-expand" [ngStyle]="{ 'background-color': background,color:color }">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <a class="navbar-brand" href="javascript:void(0)">
-          <span class="mr-3">{{usuario?.Nome}}</span>
+          <span class="mr-3" [ngStyle]="{color:color }">{{usuario?.Nome}}</span>
           <img [src]="usuario?.UrlFoto ? env+usuario.UrlFoto : '../../../../assets/img/usuarioFoto.png'" width="30"
             height="30" class="d-inline-block align-top" alt="" loading="lazy" class="rounded float-right">
         </a>
       </li>
       <li class="nav-item ">
         <a class="nav-link" type="button" (click)="sair()">
-          <i class="fa fa-power-off"></i>
+          <i class="fa fa-power-off" [ngStyle]="{color:color }"></i>
         </a>
       </li>
     </ul>
@@ -19,10 +18,10 @@
 
 
   <!-- Sidebar -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar elevation-4" [ngStyle]="{ 'background-color': background }">
     <a href="javascript:void(0)" class="brand-link">
       <span class="brand-text font-weight-light">
-        <p class=" text-center">NJL</p>
+        <p class=" text-center" [ngStyle]="{color:color }">NJL</p>
       </span>
     </a>
 
@@ -31,18 +30,17 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-envelope"></i>
-              <p>
+              <i class="nav-icon fa fa-envelope" [ngStyle]="{color:color }"></i>
+              <p [ngStyle]="{color:color }">
                 Mensagens
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-gear"></i>
-              <p>
-                Configuração
-              </p>
+            <a class="nav-link">
+              <i class="nav-icon fa fa-tint" [ngStyle]="{color:color }"></i>
+              <input type="range" class="custom-range" min="1" max="2" value="1" id="customRange3"
+                (change)="SliderValue($event)" (oninput)="SliderValue($event)">
             </a>
           </li>
         </ul>

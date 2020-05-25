@@ -1,7 +1,12 @@
 .space {
   height: 20px;
 }
-.fa-power-off:before{
+.fa-power-off:before,
+.nav-pills .nav-link,
+a {
   color: #cccccc;
   font-size: 23px;
+}
+.custom-range {
+  width: 40%;
 }
