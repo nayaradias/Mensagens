@@ -30,15 +30,18 @@ export class BaseComponent implements OnInit {
   tema: any;
   ngOnInit(): void {
     this.tema = localStorage.getItem('tema');
+    this.background = this.tema.background;
+      this.color = this.tema.color;
     if (this.tema == '' || this.tema == undefined || this.tema == null) {
       localStorage.setItem(
         'tema',
         JSON.stringify({ background: this.background, color: this.color })
       );
-    } else {
-      this.background = this.tema.background;
-      this.color = this.tema.color;
-    }
+    } 
+    // else {
+    //   this.background = this.tema.background;
+    //   this.color = this.tema.color;
+    // }
 
     this.autenticacao.usuarioLogado().subscribe((usuario) => {
       this.usuario = usuario.usuario;
