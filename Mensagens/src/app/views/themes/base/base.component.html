@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <nav class="main-header navbar navbar-expand" [ngStyle]="{ 'background-color': background,color:color }">
+  <nav class="main-header navbar navbar-expand" [ngStyle]="{ 'background-color': tema.background,color:tema.color }">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <a class="navbar-brand" href="javascript:void(0)">
@@ -10,7 +10,7 @@
       </li>
       <li class="nav-item ">
         <a class="nav-link" type="button" (click)="sair()">
-          <i class="fa fa-power-off" [ngStyle]="{color:color }"></i>
+          <i class="fa fa-power-off" [ngStyle]="{color:tema.color }"></i>
         </a>
       </li>
     </ul>
@@ -18,10 +18,10 @@
 
 
   <!-- Sidebar -->
-  <aside class="main-sidebar elevation-4" [ngStyle]="{ 'background-color': background }">
+  <aside class="main-sidebar elevation-4" [ngStyle]="{ 'background-color': tema.background }">
     <a href="javascript:void(0)" class="brand-link">
       <span class="brand-text font-weight-light">
-        <p class=" text-center" [ngStyle]="{color:color }">NJL</p>
+        <p class=" text-center" [ngStyle]="{color:tema.color }">NJL</p>
       </span>
     </a>
 
@@ -30,15 +30,15 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-envelope" [ngStyle]="{color:color }"></i>
-              <p [ngStyle]="{color:color }">
+              <i class="nav-icon fa fa-envelope" [ngStyle]="{color:tema.color }"></i>
+              <p [ngStyle]="{color:tema.color }">
                 Mensagens
               </p>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link">
-              <i class="nav-icon fa fa-tint" [ngStyle]="{color:color }"></i>
+              <i class="nav-icon fa fa-tint" [ngStyle]="{color:tema.color }"></i>
               <input type="range" class="custom-range" min="1" max="2" value="2" id="customRange3"
                 (change)="SliderValue($event)">
             </a>

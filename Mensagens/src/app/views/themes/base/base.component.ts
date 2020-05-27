@@ -21,50 +21,47 @@ export class BaseComponent implements OnInit {
   ) {}
   //bg-primaria:#343a40
   //bg-secundaria:#fff
-  background: string = '#343a40';
-  color: string = '#ffffff';
+  // background: any = '#343a40';
+  // color: any = '#ffffff';
   usuario: UsuarioI;
   mensagem: MensagemI;
   formMensagem: FormGroup;
   env = environment.apifile;
-  tema: any;
+  tema = {
+    background: '#343a40',
+    color: '#343a40',
+  };
   ngOnInit(): void {
-    this.tema = localStorage.getItem('tema');
-    this.background = this.tema.background;
-      this.color = this.tema.color;
-    if (this.tema == '' || this.tema == undefined || this.tema == null) {
-      localStorage.setItem(
-        'tema',
-        JSON.stringify({ background: this.background, color: this.color })
-      );
-    } 
-    // else {
-    //   this.background = this.tema.background;
-    //   this.color = this.tema.color;
-    // }
+    let thema = JSON.parse(localStorage.getItem('tema'));
+    if (thema == '' || thema == undefined || thema == null) {
+      localStorage.setItem('tema', JSON.stringify(this.tema));
+      // this.SliderValue(1);
+    } else {
+      this.tema.background = thema.background;
+      this.tema.color = thema.color;
+      // this.SliderValue(2);
+    }
 
     this.autenticacao.usuarioLogado().subscribe((usuario) => {
       this.usuario = usuario.usuario;
     });
   }
   SliderValue(event) {
+    let thema:any;
     if (event.target.value == 1) {
-      this.background = '#343a40';
-      this.color = '#cccccc';
-      localStorage.setItem(
-        'tema',
-        JSON.stringify({ background: this.background, color: this.color })
-      );
+      this.tema.background = '#343a40';
+      this.tema.color = '#cccccc';
+      localStorage.setItem('tema', JSON.stringify(this.tema));
+      thema = localStorage.getItem('tema');
     } else {
-      this.background = '#ffffff';
-      this.color = '#343a40';
-      localStorage.setItem(
-        'tema',
-        JSON.stringify({ background: this.background, color: this.color })
-      );
+      this.tema.background = '#ffffff';
+      this.tema.color = '#343a40';
+      localStorage.setItem('tema', JSON.stringify(this.tema));
+      thema = localStorage.getItem('tema');
     }
-
-    console.log(event.target.value);
+    console.log(thema);
+    return thema;
+    // console.log(event.target.value);
   }
   sair() {
     localStorage.removeItem('token');
