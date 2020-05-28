@@ -3,9 +3,9 @@
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <a class="navbar-brand" href="javascript:void(0)">
-          <span class="mr-3" [ngStyle]="{color:color }">{{usuario?.Nome}}</span>
+          <span class="mr-3" [ngStyle]="{color:tema.color }">{{usuario?.Nome}}</span>
           <img [src]="usuario?.UrlFoto ? env+usuario.UrlFoto : '../../../../assets/img/usuarioFoto.png'" width="30"
-            height="30" class="d-inline-block align-top" alt="" loading="lazy" class="rounded float-right">
+            height="30" class="d-inline-block align-top" alt="" loading="lazy" class="rounded float-right" (click)="upload();">
         </a>
       </li>
       <li class="nav-item ">

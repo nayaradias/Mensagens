@@ -8,7 +8,8 @@ import { MensagemService } from 'src/app/core/services/mensagens.service';
 import { MensagemI } from 'src/app/core/interfaces/mensagem.interface';
 import { Mensagem } from '../../pages/mensagens/mensagens.model';
 import { element } from 'protractor';
-
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import 'sweetalert2/src/sweetalert2.scss';
 @Component({
   selector: 'app-base',
   templateUrl: './base.component.html',
@@ -47,7 +48,7 @@ export class BaseComponent implements OnInit {
     });
   }
   SliderValue(event) {
-    let thema:any;
+    let thema: any;
     if (event.target.value == 1) {
       this.tema.background = '#343a40';
       this.tema.color = '#cccccc';
@@ -62,6 +63,28 @@ export class BaseComponent implements OnInit {
     console.log(thema);
     return thema;
     // console.log(event.target.value);
+  }
+  async upload() {
+    const { value: file } = await Swal.fire({
+      title: 'Selecione uma imagem',
+      input: 'file',
+      inputAttributes: {
+        accept: 'image/*',
+        'aria-label': 'Upload',
+      },
+    });
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        Swal.fire({
+          title: 'Imagem adicionada com sucesso',
+          imageUrl: e.target.result,
+          imageAlt: 'Imagem',
+        });
+      };
+      reader.readAsDataURL(file);
+    }
   }
   sair() {
     localStorage.removeItem('token');
