@@ -21,8 +21,8 @@ export class BaseComponent implements OnInit {
   ) {}
   //bg-primaria:#343a40
   //bg-secundaria:#fff
-  background: string = '#343a40';
-  color: string = '#ffffff';
+  background: any;
+  color: any;
   usuario: UsuarioI;
   mensagem: MensagemI;
   formMensagem: FormGroup;
@@ -30,18 +30,16 @@ export class BaseComponent implements OnInit {
   tema: any;
   ngOnInit(): void {
     this.tema = localStorage.getItem('tema');
-    this.background = this.tema.background;
-      this.color = this.tema.color;
     if (this.tema == '' || this.tema == undefined || this.tema == null) {
       localStorage.setItem(
         'tema',
-        JSON.stringify({ background: this.background, color: this.color })
+        JSON.stringify({ background: "#343a40", color: "#fff" })
       );
     } 
-    // else {
-    //   this.background = this.tema.background;
-    //   this.color = this.tema.color;
-    // }
+    else {
+      this.background = this.tema.background;
+      this.color = this.tema.color;
+    }
 
     this.autenticacao.usuarioLogado().subscribe((usuario) => {
       this.usuario = usuario.usuario;

@@ -37,16 +37,20 @@ export class MensagensComponent implements OnInit {
           .editar(novaMensagem, mensagem._id)
           .subscribe((res) => {
             console.log(res);
+            window.location.reload();
           });
       }
     });
-
+    
     console.log(mensagem);
   }
   deletarService(mensagem) {
     debugger;
     this.mensagemService
       .deletar(mensagem._id)
-      .subscribe((res) => console.log(res));
+      .subscribe((res) => {
+        console.log(res);
+        window.location.reload();
+      });
   }
 }

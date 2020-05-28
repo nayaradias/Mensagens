@@ -30,7 +30,10 @@ export class InputComponent implements OnInit {
   }
   submit() {
     this.mensagemService.adicionar(this.formMensagem.value.Conteudo).subscribe(
-      (res) => console.log(res),
+      (res) => {
+        console.log(res);
+        window.location.reload();
+      },
       (err) => console.log(err)
     );
     this.formMensagem = this.fb.group({
