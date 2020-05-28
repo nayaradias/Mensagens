@@ -8,6 +8,9 @@ import { MensagemService } from 'src/app/core/services/mensagens.service';
 import { MensagemI } from 'src/app/core/interfaces/mensagem.interface';
 import { Mensagem } from '../../pages/mensagens/mensagens.model';
 import { element } from 'protractor';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import 'sweetalert2/src/sweetalert2.scss';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-base',
@@ -17,52 +20,105 @@ import { element } from 'protractor';
 export class BaseComponent implements OnInit {
   constructor(
     private autenticacao: AutenticacaoService,
-    private router: Router
+    private router: Router,
+    private formBuilder: FormBuilder,
   ) {}
   //bg-primaria:#343a40
   //bg-secundaria:#fff
-  background: any;
-  color: any;
+  // background: any = '#343a40';
+  // color: any = '#ffffff';
   usuario: UsuarioI;
   mensagem: MensagemI;
   formMensagem: FormGroup;
+  uploadForm: FormGroup;
   env = environment.apifile;
-  tema: any;
+  api = environment.api;
+  tema = {
+    background: '#343a40',
+    color: '#343a40',
+  };
   ngOnInit(): void {
-    this.tema = localStorage.getItem('tema');
-    if (this.tema == '' || this.tema == undefined || this.tema == null) {
-      localStorage.setItem(
-        'tema',
-        JSON.stringify({ background: "#343a40", color: "#fff" })
-      );
-    } 
-    else {
-      this.background = this.tema.background;
-      this.color = this.tema.color;
+    let thema = JSON.parse(localStorage.getItem('tema'));
+    if (thema == '' || thema == undefined || thema == null) {
+      localStorage.setItem('tema', JSON.stringify(this.tema));
+      // this.SliderValue(1);
+    } else {
+      this.tema.background = thema.background;
+      this.tema.color = thema.color;
+      // this.SliderValue(2);
     }
 
     this.autenticacao.usuarioLogado().subscribe((usuario) => {
+
       this.usuario = usuario.usuario;
+      console.log('Usuario', this.usuario);
+    });
+    this.uploadForm = this.formBuilder.group({
+      profile: [''],
     });
   }
   SliderValue(event) {
+    let thema: any;
     if (event.target.value == 1) {
-      this.background = '#343a40';
-      this.color = '#cccccc';
-      localStorage.setItem(
-        'tema',
-        JSON.stringify({ background: this.background, color: this.color })
-      );
+      this.tema.background = '#343a40';
+      this.tema.color = '#cccccc';
+      localStorage.setItem('tema', JSON.stringify(this.tema));
+      thema = localStorage.getItem('tema');
     } else {
-      this.background = '#ffffff';
-      this.color = '#343a40';
-      localStorage.setItem(
-        'tema',
-        JSON.stringify({ background: this.background, color: this.color })
-      );
+      this.tema.background = '#ffffff';
+      this.tema.color = '#343a40';
+      localStorage.setItem('tema', JSON.stringify(this.tema));
+      thema = localStorage.getItem('tema');
     }
+    console.log(thema);
+    return thema;
+    // console.log(event.target.value);
+  }
+  // async upload() {
+  //   const { value: file } = await Swal.fire({
+  //     title: 'Selecione uma imagem',
+  //     input: 'file',
+  //     inputAttributes: {
+  //       accept: 'image/*',
+  //       'aria-label': 'Upload',
+  //     },
+  //   });
 
-    console.log(event.target.value);
+  //   if (file) {
+  //     const reader = new FileReader();
+  //     reader.onload = (e) => {
+  //       Swal.fire({
+  //         title: 'Imagem adicionada com sucesso',
+  //         imageUrl: e.target.result,
+  //         imageAlt: 'Imagem',
+  //       });
+  //     };
+  //     reader.readAsDataURL(file);
+  //     console.log('file:',file);
+  //     this.autenticacao.adicionarFoto(file.name).subscribe(res => {
+  //       console.log('upload Foto:',res);
+  //     });
+  //   }
+  // }
+  onFileSelect(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.uploadForm.get('profile').setValue(file);
+    }
+  }
+  onSubmit() {
+    // const formData = new FormData();
+    // formData.append('imagem', this.uploadForm.get('profile').value);
+    // console.log('formData:',formData);
+    // console.log('formData:',this.uploadForm.get('profile').value);
+    var formData: FormData = new FormData();
+    console.log(formData);
+    formData.append('image',this.uploadForm.get("profile").value);
+    console.log(formData);
+    this.autenticacao.adicionarFoto(formData).subscribe(
+      (res) => console.log(res),
+      (err) => console.log(err)
+    );
   }
   sair() {
     localStorage.removeItem('token');

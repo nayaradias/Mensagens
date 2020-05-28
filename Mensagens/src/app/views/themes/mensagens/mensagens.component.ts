@@ -41,16 +41,14 @@ export class MensagensComponent implements OnInit {
           });
       }
     });
-    
+
     console.log(mensagem);
   }
   deletarService(mensagem) {
     debugger;
-    this.mensagemService
-      .deletar(mensagem._id)
-      .subscribe((res) => {
-        console.log(res);
-        window.location.reload();
-      });
+    this.mensagemService.deletar(mensagem._id).subscribe((res) => {
+      console.log(res);
+      window.location.reload();
+    });
   }
 }

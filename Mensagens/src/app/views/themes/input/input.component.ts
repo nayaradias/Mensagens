@@ -40,5 +40,4 @@ export class InputComponent implements OnInit {
       Conteudo: this.fb.control('', [Validators.required]),
     });
   }
-  
 }

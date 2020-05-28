@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { UsuarioI } from '../interfaces/usuario.interface';
 import { Router } from '@angular/router';
 const api = environment.api;
+// const apifile = environment.apifile;
 @Injectable()
 export class AutenticacaoService {
   constructor(private http: HttpClient,private router:Router) {}
@@ -19,7 +20,6 @@ export class AutenticacaoService {
     return this.http.post(`${api}/usuarios`, usuario);
   }
   isLogged(): boolean {
-  
     console.log(this.token);
     return this.token ? true : false;
   }
@@ -29,5 +29,11 @@ export class AutenticacaoService {
   logout(){
     localStorage.removeItem('token');
     this.router.navigateByUrl('/Auth/login');
+  }
+  adicionarFoto(imagem:FormData):Observable<any> {
+    return this.http.post(`${api}/usuarios/imagem`,{
+      UrlFoto: imagem,
+    });
+    //return this.http.post(`${apifile}/usuarios/imagem`, imagem)
   }
 }

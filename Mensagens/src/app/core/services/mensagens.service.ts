@@ -22,7 +22,9 @@ export class MensagemService {
       Conteudo: conteudo,
     });
   }
-
+  upload(formData:FormData){
+    return this.http.post(`${api}/usuarios/imagem/`,formData,{});
+  }
   deletar(id: string): Observable<any> {
     return this.http.delete(`${api}/mensagens/deletar/${id}`, {});
   }
