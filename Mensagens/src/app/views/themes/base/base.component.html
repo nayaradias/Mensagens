@@ -5,7 +5,7 @@
         <a class="navbar-brand" href="javascript:void(0)">
           <span class="mr-3" [ngStyle]="{color:tema.color }">{{usuario?.Nome}}</span>
           <img [src]="usuario?.UrlFoto ? env+usuario.UrlFoto : '../../../../assets/img/usuarioFoto.png'" width="30"
-            height="30" class="d-inline-block align-top" alt="" loading="lazy" class="rounded float-right" (click)="upload();">
+            height="30" class="d-inline-block align-top" alt="" loading="lazy" class="rounded float-right">
         </a>
       </li>
       <li class="nav-item ">
@@ -60,7 +60,23 @@
 
         <div class="content">
           <div class="container-fluid">
-            <!--Adicionar mais funcionalidades-->
+
+            <!--Upload imagem-->
+            <div class="container text-center mx-auto" style="width: 500px;">
+              <p>Atualizar Foto de Perfil:</p>
+              <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <input type="file" name="profile" (change)="onFileSelect($event)" />
+                </div>
+                <div>
+                  <button type="submit" class="btn btn-info">Fazer Upload</button>
+                </div>
+              </form>
+            </div>
+
+            <!--Upload imagem-->
+
+
           </div>
         </div>
       </div>
