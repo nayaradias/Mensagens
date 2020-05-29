@@ -21,7 +21,7 @@ export class BaseComponent implements OnInit {
   constructor(
     private autenticacao: AutenticacaoService,
     private router: Router,
-    private formBuilder: FormBuilder,
+    private formBuilder: FormBuilder
   ) {}
   //bg-primaria:#343a40
   //bg-secundaria:#fff
@@ -49,7 +49,6 @@ export class BaseComponent implements OnInit {
     }
 
     this.autenticacao.usuarioLogado().subscribe((usuario) => {
-
       this.usuario = usuario.usuario;
       console.log('Usuario', this.usuario);
     });
@@ -107,14 +106,8 @@ export class BaseComponent implements OnInit {
     }
   }
   onSubmit() {
-    // const formData = new FormData();
-    // formData.append('imagem', this.uploadForm.get('profile').value);
-    // console.log('formData:',formData);
-    // console.log('formData:',this.uploadForm.get('profile').value);
     var formData: FormData = new FormData();
-    console.log(formData);
-    formData.append('image',this.uploadForm.get("profile").value);
-    console.log(formData);
+    formData.append('imagem', this.uploadForm.get('profile').value);
     this.autenticacao.adicionarFoto(formData).subscribe(
       (res) => console.log(res),
       (err) => console.log(err)
