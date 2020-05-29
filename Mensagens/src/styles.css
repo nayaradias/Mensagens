@@ -3,3 +3,6 @@
     background-size: 100% 190%;
     background-repeat: no-repeat;
 } */
+body{
+    overflow: hidden;
+}

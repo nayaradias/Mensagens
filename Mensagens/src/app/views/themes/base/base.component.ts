@@ -73,31 +73,51 @@ export class BaseComponent implements OnInit {
     return thema;
     // console.log(event.target.value);
   }
-  // async upload() {
-  //   const { value: file } = await Swal.fire({
-  //     title: 'Selecione uma imagem',
-  //     input: 'file',
-  //     inputAttributes: {
-  //       accept: 'image/*',
-  //       'aria-label': 'Upload',
-  //     },
-  //   });
+  // upload() {
+  //   // const { value: file } = await Swal.fire({
+  //   //   title: 'Selecione uma imagem',
+  //   //   input: 'file',
+  //   //   inputAttributes: {
+  //   //     accept: 'image/*',
+  //   //     'aria-label': 'Upload',
+  //   //   },
 
-  //   if (file) {
-  //     const reader = new FileReader();
-  //     reader.onload = (e) => {
-  //       Swal.fire({
-  //         title: 'Imagem adicionada com sucesso',
-  //         imageUrl: e.target.result,
-  //         imageAlt: 'Imagem',
-  //       });
-  //     };
-  //     reader.readAsDataURL(file);
-  //     console.log('file:',file);
-  //     this.autenticacao.adicionarFoto(file.name).subscribe(res => {
-  //       console.log('upload Foto:',res);
-  //     });
-  //   }
+  //   // });
+
+  //   // if (file) {
+  //   //   const reader = new FileReader();
+  //   //   reader.onload = (e) => {
+  //   //     Swal.fire({
+  //   //       title: 'Imagem adicionada com sucesso',
+  //   //       imageUrl: e.target.result,
+  //   //       imageAlt: 'Imagem',
+  //   //     });
+  //   //   };
+  //   //   reader.readAsDataURL(file);
+  //   //   console.log('file:',file);
+  //   //   this.autenticacao.adicionarFoto(file).subscribe(
+  //   //     (res) => {console.log(res);window.location.reload();},
+  //   //     (err) => console.log(err)
+  //   //   );
+  //   // }
+
+  //   Swal.fire({
+  //     title: '<h6>Adicionar Foto de Perfil</h6>',
+  //     type: 'info',
+  //     html:
+  //       '<div class="container text-center mx-auto" style="width: 500px;"></br>' +
+  //       '<form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">' +
+  //       '<div class="form-group">' +
+  //       ' <input type="file" class=" btn btn-info" name="profile" (change)="onFileSelect($event)"/>' +
+  //       '</div>' +
+  //       '<div>' +
+  //       '<button type="submit" class="btn btn-info">Fazer Upload</button>' +
+  //       '</div>' +
+  //       '</form>' +
+  //       '</div>',
+  //     showCloseButton: true,
+  //     showConfirmButton: false,
+  //   });
   // }
   onFileSelect(event) {
     if (event.target.files.length > 0) {
@@ -109,7 +129,10 @@ export class BaseComponent implements OnInit {
     var formData: FormData = new FormData();
     formData.append('imagem', this.uploadForm.get('profile').value);
     this.autenticacao.adicionarFoto(formData).subscribe(
-      (res) => console.log(res),
+      (res) => {
+        console.log(res);
+        window.location.reload();
+      },
       (err) => console.log(err)
     );
   }
