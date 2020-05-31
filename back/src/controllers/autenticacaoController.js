@@ -71,7 +71,7 @@ module.exports = {
     async uploadImage(req, res) {
         try {
             const usuario = await Usuario.updateOne({ _id: res.locals.auth_data.id },
-                {$set: { UrlFoto: `/files/${req.file.filename}` }});
+                {$set: { UrlFoto: `files/${req.file.filename}` }});
 
                 return res.status(200).json({
                     usuario

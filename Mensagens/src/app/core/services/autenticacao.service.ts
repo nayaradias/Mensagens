@@ -31,8 +31,7 @@ export class AutenticacaoService {
     this.router.navigateByUrl('/Auth/login');
   }
   adicionarFoto(imagem:FormData):Observable<any> {
-    return this.http.post(`${api}/usuarios/imagem`,{
-      UrlFoto: imagem,
+    return this.http.post(`${api}/usuarios/imagem`,imagem,{
     });
     //return this.http.post(`${apifile}/usuarios/imagem`, imagem)
   }
