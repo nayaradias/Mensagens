@@ -17,6 +17,7 @@ const MensagemSchema = mongoose.Schema({
         type: String,
         required: false
     }
-})
+    
+},{timestamps:true});
 
 mongoose.model('Mensagem', MensagemSchema);
