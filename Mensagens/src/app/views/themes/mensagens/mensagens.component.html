@@ -14,7 +14,7 @@
         <div class="conteudo">
             {{messageVarClasse.Conteudo}}
         </div>
-        <div class="config">
+        <div class="config" *ngIf="show">
             <a type="button" (click)="editarService(messageVarClasse)" data-toggle="tooltip" data-placement="top"
                 title="Editar"><i class="fa fa-edit"></i></a>
             <a type="button" (click)="deletarService(messageVarClasse)" data-toggle="tooltip" data-placement="top"
